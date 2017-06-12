@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import { TableRow } from '../components';
+import { WorkoutWeek } from '../components';
+import { DATA } from '../data';
 
 export class AppContainer extends Component {
-  state = {
-    days: ['Monday', 'Thuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturnday', 'Sunday']
-  }
+  state = DATA;
 
   render() {
-    const { days } = this.state;
+    const { weeks, headers } = this.state;
     return (
       <div className='uk-container'>
-        <TableRow days={ days }/>
+        {weeks.map(week => (
+          <WorkoutWeek key={week.id} {...week} headers={headers}/>
+        ))}
       </div>
     );
   }

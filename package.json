@@ -9,6 +9,7 @@
     "react-dom": "^15.5.4",
     "react-uikit-flex": "^2.0.3",
     "react-uikit-grid": "^2.0.3",
+    "react-uikit-panel": "^2.0.2",
     "uikit": "^3.0.0-beta.25"
   },
   "devDependencies": {

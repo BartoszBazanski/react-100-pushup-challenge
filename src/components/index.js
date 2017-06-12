@@ -1,1 +1,1 @@
-export { TableRow } from './TableRow';
+export { WorkoutWeek } from './WorkoutWeek';
