@@ -1,1 +1,1 @@
-export { Week } from './Week';
+export { TableRow } from './TableRow';

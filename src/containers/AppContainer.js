@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Week } from '../components';
+import { TableRow } from '../components';
 
 export class AppContainer extends Component {
   state = {
@@ -9,7 +9,9 @@ export class AppContainer extends Component {
   render() {
     const { days } = this.state;
     return (
-      <Week days={ days }/>
+      <div className='uk-container'>
+        <TableRow days={ days }/>
+      </div>
     );
   }
 }
