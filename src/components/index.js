@@ -1,1 +1,0 @@
-export { WorkoutWeek } from './WorkoutWeek';
