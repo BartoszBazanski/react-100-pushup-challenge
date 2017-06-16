@@ -12,7 +12,10 @@ import styled from 'styled-components';
 
 import Header from 'components/Header';
 import Footer from 'components/Footer';
+import { DATA } from './data';
+import WorkoutWeek from 'components/WorkoutWeek';
 import withProgressBar from 'components/ProgressBar';
+
 
 const AppWrapper = styled.div`
   max-width: calc(768px + 16px * 2);
@@ -24,6 +27,8 @@ const AppWrapper = styled.div`
 `;
 
 export function App(props) {
+  const { weeks, headers } = DATA;
+  const week = weeks[0];
   return (
     <AppWrapper>
       <Helmet
@@ -35,6 +40,7 @@ export function App(props) {
       />
       <Header />
       {React.Children.toArray(props.children)}
+      <WorkoutWeek {...week} headers={headers} />
       <Footer />
     </AppWrapper>
   );
