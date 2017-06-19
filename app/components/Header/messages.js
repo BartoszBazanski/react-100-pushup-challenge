@@ -14,4 +14,8 @@ export default defineMessages({
     id: 'boilerplate.components.Header.features',
     defaultMessage: 'Features',
   },
+  title: {
+    id: 'boilerplate.components.Header.title',
+    defaultMessage: '100 pushups challenge',
+  },
 });
