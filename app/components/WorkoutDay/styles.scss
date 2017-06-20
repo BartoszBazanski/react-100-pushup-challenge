@@ -1,5 +1,11 @@
 .workoutDay {
-  padding: 20px;
+  padding: 0 2rem;
   box-sizing: border-box;
-  text-align: center;
+  list-style-type: none;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  margin-bottom: 1rem;
+}
+.workoutRound {
+  padding: 1rem;
 }
