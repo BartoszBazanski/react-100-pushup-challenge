@@ -5,7 +5,15 @@
   border: 1px solid lightgray;
   border-radius: 3px;
   margin-bottom: 1rem;
+  cursor: pointer;
 }
+
+.workoutDayActive {
+  @extend .workoutDay;
+  background-color: lightgreen;
+  border: 1px solid darkgreen;
+}
+
 .workoutRound {
   padding: 1rem;
 }
