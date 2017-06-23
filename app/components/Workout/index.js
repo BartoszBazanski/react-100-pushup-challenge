@@ -20,11 +20,6 @@ export default class Workout extends Component {
       weeks: DATA.weeks,
     });
   }
-  updateState(object) {
-    this.setState({
-      ...object,
-    });
-  }
   handleWorkoutCompletion = (id, weekId) => {
     const { weeks } = this.state;
     const { currentWeek } = this.state;
