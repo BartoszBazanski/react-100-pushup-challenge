@@ -1,30 +1,25 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/prefer-stateless-function */
+/* eslint-disable react/jsx-no-bind */
+
 import React, { Component, PropTypes } from 'react';
 import H3 from '../H3';
 import styles from './styles.scss';
 
 export default class WorkoutDay extends Component {
-  constructor() {
-    super();
-    this.state = {
-      isDone: false,
-    };
-    this.toggleActive = this.toggleActive.bind(this);
-  }
-  toggleActive() {
-    const { isDone } = this.state;
-    this.setState({
-      isDone: !isDone,
-    });
-  }
   render() {
-    const { header, workout } = this.props;
-    const { isDone } = this.state;
+    const {
+      header,
+      workout,
+      dayId,
+      handleWorkoutCompletion,
+      weekId,
+    } = this.props;
+    const { isDone } = workout;
     return (
-      <ul className={isDone ? styles.workoutDayActive : styles.workoutDay} onClick={this.toggleActive}>
+      <ul className={isDone ? styles.workoutDayActive : styles.workoutDay} onClick={() => handleWorkoutCompletion(dayId, weekId)}>
         <H3>{header}</H3>
-        {workout.map((pushups, id) => (
+        {workout.series.map((pushups, id) => (
           <li key={id} className={styles.workoutRound}>{pushups}</li>
         ))}
       </ul>
@@ -34,5 +29,8 @@ export default class WorkoutDay extends Component {
 
 WorkoutDay.propTypes = {
   header: PropTypes.string,
-  workout: PropTypes.array,
+  workout: PropTypes.object,
+  dayId: PropTypes.number,
+  weekId: PropTypes.number,
+  handleWorkoutCompletion: PropTypes.func,
 };

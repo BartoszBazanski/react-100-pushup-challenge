@@ -1,25 +1,33 @@
+/* eslint-disable react/prefer-stateless-function */
+
 import React, { Component, PropTypes } from 'react';
 import Grid from 'react-uikit-grid';
 import WorkoutDay from '../WorkoutDay';
+import WorkoutWeekSummary from '../WorkoutWeekSummary';
 import H2 from '../H2';
 import styles from './styles.scss';
 
-export default class WorkoutWeek extends Component {// eslint-disable-line react/prefer-stateless-function
+export default class WorkoutWeek extends Component {
   render() {
-    const { headers, workouts, summary } = this.props;
-    const weekId = this.props.id;
+    const {
+      headers,
+      workouts,
+      summary,
+      handleWorkoutCompletion,
+      weekId,
+      currentWeek,
+    } = this.props;
     return (
       <div className="uk-row">
         <Grid match>
-          <ul className={styles.workoutWeek}>
-            <li><H2>Week: {weekId}</H2></li>
+          <ul className={currentWeek ? styles.workoutWeek__active : styles.workoutWeek}>
+            <li><H2>Week: {weekId + 1}</H2></li>
             {workouts.map((workout, id) => (
               <li key={id}>
-                <WorkoutDay header={headers[id]} workout={workout} />
+                <WorkoutDay dayId={id} header={headers[id]} workout={workout} weekId={weekId} handleWorkoutCompletion={handleWorkoutCompletion} />
               </li>
             ))}
-            <li>Finished: {summary.done ? 'V' : 'X'}</li>
-            <li>Repeats: {summary.repeats}</li>
+            <WorkoutWeekSummary summary={summary} />
           </ul>
         </Grid>
       </div>
@@ -28,8 +36,10 @@ export default class WorkoutWeek extends Component {// eslint-disable-line react
 }
 
 WorkoutWeek.propTypes = {
-  id: PropTypes.number.isRequired,
+  weekId: PropTypes.number.isRequired,
+  currentWeek: PropTypes.number.isRequired,
   headers: PropTypes.array,
   workouts: PropTypes.array,
   summary: PropTypes.object,
+  handleWorkoutCompletion: PropTypes.func,
 };

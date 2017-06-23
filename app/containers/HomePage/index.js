@@ -8,7 +8,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 
 import H2 from 'components/H2';
-import WorkoutWeek from 'components/WorkoutWeek';
+import Workout from 'components/Workout';
 
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
@@ -21,8 +21,6 @@ import { loadRepos } from '../App/actions';
 import { changeUsername } from './actions';
 import { makeSelectUsername } from './selectors';
 
-import { DATA } from './data';
-
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   /**
    * when initial state username is not null, submit the form to load repos
@@ -34,7 +32,6 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
   }
 
   render() {
-    const { weeks, headers } = DATA;
     return (
       <article>
         <Helmet
@@ -50,9 +47,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             </H2>
           </CenteredSection>
           <Section>
-            {weeks.map((week, id) => (
-              <WorkoutWeek key={id} {...week} headers={headers} />
-            ))}
+            <Workout />
           </Section>
         </div>
       </article>

@@ -6,6 +6,10 @@
   border-radius: 3px;
   margin-bottom: 1rem;
   cursor: pointer;
+  &:hover {
+    border: 1px solid gray;
+    box-shadow: 0 0 2px 1px lightgray;
+  }
 }
 
 .workoutDayActive {

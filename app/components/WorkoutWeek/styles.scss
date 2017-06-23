@@ -5,3 +5,8 @@
   border: 1px solid lightgray;
   border-radius: 5px;
 }
+.workoutWeek__active {
+  @extend .workoutWeek;
+  background-color: lightyellow;
+  border: 1px solid yellow;
+}
